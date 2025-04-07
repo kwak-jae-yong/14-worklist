@@ -1,0 +1,251 @@
+/* Section */
+#s3 {
+    padding: 20rem 0;
+    height: auto;
+}
+
+/* Project List */
+.project-lst li {
+    position: sticky;
+    top: 0;
+    min-height: 20rem;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    /* transition: background-color 0.3s; */
+}
+
+.project-lst li+li {
+    /* margin-top: 3rem; */
+}
+
+.project-lst li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5rem 5rem 8rem;
+    font-family: "Montserrat", sans-serif;
+    z-index: 1;
+}
+
+/* Project List Hover Effect */
+.project-lst li::after {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 2rem;
+    background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 212, 255, 0) 100%);
+    opacity: 0.05;
+    content: "";
+    /* transition: all 0.3s; */
+}
+
+.project-lst li::before {
+    content: "";
+    visibility: visible;
+    background:url(../img/desktop-works-li-orange.png) no-repeat center /100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* transform-origin: bottom; */
+    /* transition: 0.3s; */
+    z-index: 0;
+    opacity: 0;
+}
+/* has-content-hover */
+
+/* Project List Active State */
+.project-lst li.On::before {
+    /* background: linear-gradient(180deg, rgb(255, 255, 255) 60%, rgba(127, 255, 212, 1) 90%); */
+    opacity: 1;
+}
+
+
+
+img {
+    max-width: 100%;
+}
+.project-lst li .content{
+    height: 0;
+    visibility: hidden;
+    transition: height .3s;
+}
+.project-lst li .content .in{
+    margin-top: 5rem;
+    display: flex;
+    transition: opacity .3s .3s;
+    align-items: center;
+    justify-content: space-evenly;
+    opacity: 0;
+}
+
+.project-lst li .content .in .img-wrap{
+    width: 60rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: #fff;
+}
+.project-lst li .content .in .t-wrap{
+    max-width: 50rem;
+    color: #fff;
+}
+.project-lst li.On.has-hover::before{
+    background:url(../img/desktop-works-li-active-orange.png) no-repeat center /100% 100%;
+
+    
+}
+.project-lst li.On.has-hover .arr ,
+.project-lst li.On .arr {
+    transform: translateY(-50%) translateX(0%);
+    opacity: 1;
+    color: #fff;
+}
+
+.project-lst li.has-hover .badge ,
+.project-lst li.On .badge {
+    transform: scaleY(0);
+}
+
+.project-lst li.On.has-hover .project ,
+.project-lst li.On .project {
+    transform: translateX(20px) skewX(-15deg);
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.project-lst li.On.has-hover .txt ,
+.project-lst li.On .txt {
+    opacity: 1;
+}
+
+.project-lst li.On.has-hover .tag ,
+.project-lst li.On .tag {
+    transform: translateX(-1rem);
+    opacity: 0;
+}
+
+.project-lst li.On.has-hover .link, 
+.project-lst li.On .link {
+    opacity: 1;
+    transform: translate(2rem, 0);
+    background-color: #eee;
+    color: #000;
+}
+.project-lst li.On.has-hover .content,
+.project-lst li.On .content{
+    height: auto;
+    visibility: visible;
+}
+.project-lst li.On.has-hover .content .in,
+.project-lst li.On .content .in{
+    opacity: 1;
+}
+/* Project Text */
+.project {
+    font-size: 5.5rem;
+    font-weight: 800;
+    width: fit-content;
+    color: #616161;
+    /* 넣으면 이미지 뭉게짐 */
+    transition: all 0.3s; 
+}
+
+.project-lst .txt {
+    font-size: 1.6rem;
+    max-width: 60%;
+    margin-top: 0.5rem;
+    opacity: 0;
+}
+
+/* Badge */
+.badge {
+    font-size: 2rem;
+    background-color: #ccc;
+    padding: 0 1rem;
+    color: #fff;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+/* Layout & Positioning */
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.right {
+    position: relative;
+    min-width: 40rem;
+    text-align: right;
+}
+
+/* Link & Tag Box */
+.link-box,
+.tag-box {
+    transition: all 0.3s;
+}
+
+.link-box {
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.link-box .link {
+    background-color: #000;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    font-size: 1.6rem;
+    min-width: 11rem;
+    text-align: center;
+    font-weight: 600;
+    display: block;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    transition: all 0.3s;
+    transform: translateY(100%);
+}
+
+.link-box .link:nth-child(2) {
+    transition-delay: 0.05s;
+}
+
+.link-box .link:nth-child(3) {
+    transition-delay: 0.1s;
+}
+
+/* Tag Box */
+.tag-box {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-30%);
+    overflow: hidden;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0 2rem;
+    border: 0.1rem solid #ccc;
+    line-height: 1.6;
+    font-size: 2rem;
+    border-radius: 10rem;
+    transition: all 0.1s;
+}
+
+/* Arrow */
+.arr {
+    font-size: 6rem;
+    right: 0;
+    position: absolute;
+    opacity: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(100%);
+    transition: all 0.25s;
+}
